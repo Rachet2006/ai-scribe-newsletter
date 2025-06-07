@@ -1,0 +1,95 @@
+
+import { Zap, Twitter, Linkedin, Github, Mail } from 'lucide-react';
+
+const Footer = () => {
+  const socialLinks = [
+    { icon: Twitter, href: "#", label: "Twitter" },
+    { icon: Linkedin, href: "#", label: "LinkedIn" },
+    { icon: Github, href: "#", label: "GitHub" },
+    { icon: Mail, href: "#", label: "Email" }
+  ];
+
+  const footerLinks = {
+    Newsletter: ["Latest Issues", "Archive", "Subscribe", "RSS Feed"],
+    Company: ["About", "Team", "Careers", "Contact"],
+    Resources: ["AI Tools", "Research", "Tutorials", "Community"],
+    Legal: ["Privacy Policy", "Terms of Service", "Cookie Policy", "GDPR"]
+  };
+
+  return (
+    <footer className="bg-muted/50 border-t border-border">
+      <div className="container mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-8">
+          {/* Brand Section */}
+          <div className="lg:col-span-2">
+            <div className="flex items-center space-x-2 mb-4">
+              <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                <Zap className="w-5 h-5 text-white" />
+              </div>
+              <span className="text-xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+                AI Insights
+              </span>
+            </div>
+            <p className="text-muted-foreground mb-6 max-w-sm">
+              Your weekly source for AI breakthroughs, practical applications, and industry insights. 
+              Stay ahead of the curve with expert analysis and curated content.
+            </p>
+            <div className="flex space-x-4">
+              {socialLinks.map((link, index) => (
+                <a
+                  key={index}
+                  href={link.href}
+                  className="w-10 h-10 bg-background border border-border rounded-lg flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                  aria-label={link.label}
+                >
+                  <link.icon className="w-5 h-5" />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Footer Links */}
+          {Object.entries(footerLinks).map(([category, links]) => (
+            <div key={category}>
+              <h3 className="font-semibold text-foreground mb-4">{category}</h3>
+              <ul className="space-y-2">
+                {links.map((link, index) => (
+                  <li key={index}>
+                    <a
+                      href="#"
+                      className="text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      {link}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        {/* Bottom Section */}
+        <div className="border-t border-border pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <div className="text-muted-foreground text-sm">
+              © 2024 AI Insights. All rights reserved.
+            </div>
+            <div className="flex items-center space-x-6 text-sm">
+              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                Privacy Policy
+              </a>
+              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                Terms of Service
+              </a>
+              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                Cookie Settings
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
