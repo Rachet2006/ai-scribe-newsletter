@@ -4,19 +4,64 @@ import { Mail, CheckCircle, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
+import { supabase } from '@/integrations/supabase/client';
+import { useToast } from '@/hooks/use-toast';
 
 const Subscribe = () => {
   const [email, setEmail] = useState('');
   const [isSubscribed, setIsSubscribed] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Subscribing email:', email);
-    setIsSubscribed(true);
-    setTimeout(() => {
-      setIsSubscribed(false);
-      setEmail('');
-    }, 3000);
+    setIsLoading(true);
+
+    try {
+      const { data, error } = await supabase
+        .from('subscribers')
+        .insert([{ email }])
+        .select();
+
+      if (error) {
+        if (error.code === '23505') {
+          // Unique constraint violation - email already exists
+          toast({
+            title: "Already subscribed",
+            description: "This email is already subscribed to our newsletter.",
+            variant: "destructive",
+          });
+        } else {
+          toast({
+            title: "Error",
+            description: "Something went wrong. Please try again.",
+            variant: "destructive",
+          });
+        }
+        return;
+      }
+
+      console.log('Successfully subscribed:', data);
+      setIsSubscribed(true);
+      toast({
+        title: "Successfully subscribed!",
+        description: "Welcome to AI Insights! Check your email for confirmation.",
+      });
+
+      setTimeout(() => {
+        setIsSubscribed(false);
+        setEmail('');
+      }, 3000);
+    } catch (error) {
+      console.error('Subscription error:', error);
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const benefits = [
@@ -63,14 +108,16 @@ const Subscribe = () => {
                         onChange={(e) => setEmail(e.target.value)}
                         className="pl-10 py-6 text-base border-border focus:border-primary"
                         required
+                        disabled={isLoading}
                       />
                     </div>
                     <Button 
                       type="submit"
                       size="lg"
                       className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 py-6 px-8 text-base font-semibold"
+                      disabled={isLoading}
                     >
-                      Subscribe Free
+                      {isLoading ? 'Subscribing...' : 'Subscribe Free'}
                     </Button>
                   </div>
                   
