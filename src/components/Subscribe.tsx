@@ -68,12 +68,11 @@ const Subscribe = () => {
     "Weekly AI research summaries",
     "Exclusive industry insights",
     "Early access to new tools",
-    "Expert interviews & analysis",
     "No spam, unsubscribe anytime"
   ];
 
   return (
-    <section id="subscribe" className="py-20 bg-gradient-to-br from-[#F59E0B]/10 via-[#14B8A6]/10 to-[#F59E0B]/10">
+    <section id="subscribe" className="py-20 bg-gradient-to-br from-[#121212] via-[#1E1E1E] to-[#121212] text-white">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <Card className="border-2 border-gradient-to-r from-[#F59E0B]/20 to-[#14B8A6]/20 bg-card/90 backdrop-blur-sm">
@@ -81,7 +80,7 @@ const Subscribe = () => {
               <div className="text-center mb-8">
                 <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#F59E0B]/10 to-[#14B8A6]/10 border border-[#F59E0B]/20 rounded-full px-4 py-2 mb-6">
                   <Sparkles className="w-4 h-4 text-[#F59E0B]" />
-                  <span className="text-sm font-medium">Join 50,000+ AI Enthusiasts</span>
+                  <span className="text-sm font-medium">Join AI Enthusiasts</span>
                 </div>
                 
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -106,7 +105,7 @@ const Subscribe = () => {
                         placeholder="Enter your email address"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="pl-10 py-6 text-base border-border focus:border-primary"
+                        className="pl-10 py-6 text-base border-border bg-[#1E1E1E] text-white placeholder:text-muted-foreground focus:border-[#14B8A6] transition-colors"
                         required
                         disabled={isLoading}
                       />
@@ -114,7 +113,7 @@ const Subscribe = () => {
                     <Button
                       type="submit"
                       size="lg"
-                      className="bg-gradient-to-r from-[#F59E0B] to-[#14B8A6] hover:opacity-90 py-6 px-8 text-base font-semibold"
+                      className="bg-gradient-to-r from-[#F59E0B] to-[#14B8A6] hover:bg-[#F59E0B] hover:from-[#F59E0B] hover:to-[#F59E0B] focus:ring-2 focus:ring-[#14B8A6] transition-colors py-6 px-8 text-base font-semibold"
                       disabled={isLoading}
                     >
                       {isLoading ? 'Subscribing...' : 'Subscribe Free'}
