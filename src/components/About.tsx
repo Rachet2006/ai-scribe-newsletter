@@ -1,12 +1,11 @@
 
-import { User, Award, BookOpen, Users } from 'lucide-react';
+import { User, BookOpen, Users } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 
 const About = () => {
   const stats = [
     { icon: Users, label: "Newsletter Subscribers", value: "50,000+" },
     { icon: BookOpen, label: "Articles Published", value: "200+" },
-    { icon: Award, label: "Industry Recognition", value: "15+" },
     { icon: User, label: "Years in AI", value: "8+" }
   ];
 
@@ -17,7 +16,7 @@ const About = () => {
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               About{' '}
-              <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#F59E0B] to-[#14B8A6] bg-clip-text text-transparent">
                 The NextTech Brief
               </span>
             </h2>
@@ -48,8 +47,8 @@ const About = () => {
             </div>
 
             <div className="relative">
-              <div className="w-full h-80 bg-gradient-to-br from-blue-500/10 to-purple-600/10 rounded-2xl border border-border flex items-center justify-center">
-                <div className="w-32 h-32 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+              <div className="w-full h-80 bg-gradient-to-br from-[#F59E0B]/10 to-[#14B8A6]/10 rounded-2xl border border-border flex items-center justify-center">
+                <div className="w-32 h-32 bg-gradient-to-br from-[#F59E0B] to-[#14B8A6] rounded-full flex items-center justify-center">
                   <User className="w-16 h-16 text-white" />
                 </div>
               </div>
@@ -59,11 +58,11 @@ const About = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 place-items-center">
             {stats.map((stat, index) => (
               <Card key={index} className="text-center hover:shadow-lg transition-shadow">
-                <CardContent className="pt-6">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <CardContent className="pt-6 flex flex-col items-center justify-center">
+                  <div className="w-12 h-12 bg-gradient-to-br from-[#F59E0B] to-[#14B8A6] rounded-lg flex items-center justify-center mx-auto mb-4">
                     <stat.icon className="w-6 h-6 text-white" />
                   </div>
                   <div className="text-2xl font-bold text-foreground mb-2">{stat.value}</div>

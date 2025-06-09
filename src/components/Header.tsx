@@ -20,7 +20,7 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center space-x-2">
             <img src="/logo.svg" alt="NextTech Brief logo" className="w-8 h-8" />
-            <span className="text-xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+            <span className="text-xl font-bold bg-gradient-to-r from-[#F59E0B] to-[#14B8A6] bg-clip-text text-transparent">
               The NextTech Brief
             </span>
           </div>
@@ -36,8 +36,8 @@ const Header = () => {
             <a href="#about" className="text-foreground hover:text-primary transition-colors">
               About
             </a>
-            <Button 
-              className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700"
+            <Button
+              className="bg-gradient-to-r from-[#F59E0B] to-[#14B8A6] hover:opacity-90"
               onClick={scrollToSubscribe}
             >
               Subscribe
@@ -66,8 +66,8 @@ const Header = () => {
               <a href="#about" className="text-foreground hover:text-primary transition-colors">
                 About
               </a>
-              <Button 
-                className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 w-full"
+              <Button
+                className="bg-gradient-to-r from-[#F59E0B] to-[#14B8A6] hover:opacity-90 w-full"
                 onClick={scrollToSubscribe}
               >
                 Subscribe
