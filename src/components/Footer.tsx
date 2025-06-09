@@ -1,11 +1,11 @@
-
-import { Zap, Twitter, Linkedin, Github, Mail } from 'lucide-react';
+import { Zap, Twitter, Linkedin, Github, Mail, Instagram } from 'lucide-react';
 
 const Footer = () => {
   const socialLinks = [
     { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Github, href: "#", label: "GitHub" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/rishitjain006", label: "LinkedIn" },
+    { icon: Github, href: "https://github.com/Rachet2006", label: "GitHub" },
+    { icon: Instagram, href: "https://www.instagram.com/nexttech_brief/?hl=en", label: "Instagram" },
     { icon: Mail, href: "#", label: "Email" }
   ];
 
@@ -39,6 +39,8 @@ const Footer = () => {
                 <a
                   key={index}
                   href={link.href}
+                  target={link.href !== "#" ? "_blank" : "_self"}
+                  rel={link.href !== "#" ? "noopener noreferrer" : undefined}
                   className="w-10 h-10 bg-background border border-border rounded-lg flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
                   aria-label={link.label}
                 >
