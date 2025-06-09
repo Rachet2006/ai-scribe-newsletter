@@ -15,6 +15,13 @@ const Footer = () => {
     Resources: ["AI Tools"]
   };
 
+  const scrollToSection = (id: string) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <footer className="bg-muted/50 border-t border-border">
       <div className="container mx-auto px-4 py-12">
@@ -55,6 +62,13 @@ const Footer = () => {
                   <li key={index}>
                     <a
                       href="#"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        if (link === 'Subscribe') scrollToSection('subscribe');
+                        if (link === 'About') scrollToSection('about');
+                        if (link === 'Latest Issue' || link === 'Archive')
+                          scrollToSection('newsletter');
+                      }}
                       className="text-muted-foreground hover:text-primary transition-colors"
                     >
                       {link}
