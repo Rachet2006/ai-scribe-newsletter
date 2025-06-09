@@ -13,7 +13,7 @@ const Newsletter = () => {
       date: "Dec 5, 2024",
       category: "LLMs",
       icon: Cpu,
-      gradient: "from-blue-500 to-cyan-500"
+      gradient: "from-[#F59E0B] to-[#14B8A6]"
     },
     {
       title: "The Rise of AI Agents: Autonomous Intelligence in Action",
@@ -22,7 +22,7 @@ const Newsletter = () => {
       date: "Dec 3, 2024",
       category: "AI Agents",
       icon: TrendingUp,
-      gradient: "from-purple-500 to-pink-500"
+      gradient: "from-[#14B8A6] to-[#F59E0B]"
     },
     {
       title: "Prompt Engineering Mastery: Advanced Techniques",
@@ -31,7 +31,7 @@ const Newsletter = () => {
       date: "Nov 28, 2024",
       category: "Techniques",
       icon: Lightbulb,
-      gradient: "from-green-500 to-emerald-500"
+      gradient: "from-[#F59E0B] to-[#14B8A6]"
     }
   ];
 
@@ -41,7 +41,7 @@ const Newsletter = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Latest from{' '}
-            <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#F59E0B] to-[#14B8A6] bg-clip-text text-transparent">
               The NextTech Brief
             </span>
           </h2>

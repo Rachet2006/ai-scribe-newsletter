@@ -73,20 +73,20 @@ const Subscribe = () => {
   ];
 
   return (
-    <section id="subscribe" className="py-20 bg-gradient-to-br from-blue-50/50 via-purple-50/30 to-pink-50/50 dark:from-blue-950/20 dark:via-purple-950/20 dark:to-pink-950/20">
+    <section id="subscribe" className="py-20 bg-gradient-to-br from-[#F59E0B]/10 via-[#14B8A6]/10 to-[#F59E0B]/10">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
-          <Card className="border-2 border-gradient-to-r from-blue-500/20 to-purple-600/20 bg-card/90 backdrop-blur-sm">
+          <Card className="border-2 border-gradient-to-r from-[#F59E0B]/20 to-[#14B8A6]/20 bg-card/90 backdrop-blur-sm">
             <CardContent className="p-8 md:p-12">
               <div className="text-center mb-8">
-                <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-500/10 to-purple-600/10 border border-blue-500/20 rounded-full px-4 py-2 mb-6">
-                  <Sparkles className="w-4 h-4 text-blue-500" />
+                <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#F59E0B]/10 to-[#14B8A6]/10 border border-[#F59E0B]/20 rounded-full px-4 py-2 mb-6">
+                  <Sparkles className="w-4 h-4 text-[#F59E0B]" />
                   <span className="text-sm font-medium">Join 50,000+ AI Enthusiasts</span>
                 </div>
                 
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">
                   Never Miss an{' '}
-                  <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-[#F59E0B] to-[#14B8A6] bg-clip-text text-transparent">
                     AI Breakthrough
                   </span>
                 </h2>
@@ -111,10 +111,10 @@ const Subscribe = () => {
                         disabled={isLoading}
                       />
                     </div>
-                    <Button 
+                    <Button
                       type="submit"
                       size="lg"
-                      className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 py-6 px-8 text-base font-semibold"
+                      className="bg-gradient-to-r from-[#F59E0B] to-[#14B8A6] hover:opacity-90 py-6 px-8 text-base font-semibold"
                       disabled={isLoading}
                     >
                       {isLoading ? 'Subscribing...' : 'Subscribe Free'}
