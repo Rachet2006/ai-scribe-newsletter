@@ -30,7 +30,7 @@ const Hero = () => {
           {/* Badge */}
           <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-500/10 to-purple-600/10 border border-blue-500/20 rounded-full px-4 py-2 mb-8">
             <Sparkles className="w-4 h-4 text-blue-500" />
-            <span className="text-sm font-medium text-foreground">Weekly AI Insights & Analysis</span>
+            <span className="text-sm font-medium text-foreground">Weekly NextTech Brief & Analysis</span>
           </div>
 
           {/* Main Headline */}

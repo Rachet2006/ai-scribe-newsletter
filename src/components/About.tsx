@@ -18,7 +18,7 @@ const About = () => {
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               About{' '}
               <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
-                AI Insights
+                NextTech Brief
               </span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -32,7 +32,7 @@ const About = () => {
                 Your Guide to the AI Revolution
               </h3>
               <p className="text-muted-foreground leading-relaxed">
-                AI Insights was founded with a simple mission: to make artificial intelligence accessible and actionable for everyone. 
+                NextTech Brief was founded with a simple mission: to make artificial intelligence accessible and actionable for everyone. 
                 In a rapidly evolving field where breakthrough discoveries happen weekly, we curate the most important developments 
                 and translate complex research into practical insights.
               </p>
@@ -43,7 +43,7 @@ const About = () => {
               </p>
               <p className="text-muted-foreground leading-relaxed">
                 Join our community of forward-thinking professionals, entrepreneurs, and AI enthusiasts who rely on 
-                AI Insights to stay ahead of the curve and make informed decisions about AI adoption and strategy.
+                NextTech Brief to stay ahead of the curve and make informed decisions about AI adoption and strategy.
               </p>
             </div>
 
