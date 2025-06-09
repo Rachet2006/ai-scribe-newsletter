@@ -6,10 +6,10 @@ import { Button } from '@/components/ui/button';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const scrollToSubscribe = () => {
-    const subscribeSection = document.getElementById('subscribe');
-    if (subscribeSection) {
-      subscribeSection.scrollIntoView({ behavior: 'smooth' });
+  const scrollToSection = (id: string) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -18,8 +18,7 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <img src="/logo.svg" alt="NextTech Brief logo" className="w-8 h-8" />
+          <div className="flex items-center">
             <span className="text-xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
               The NextTech Brief
             </span>
@@ -27,18 +26,39 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#home" className="text-foreground hover:text-primary transition-colors">
+            <a
+              href="#home"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('home');
+              }}
+              className="text-foreground hover:text-primary transition-colors"
+            >
               Home
             </a>
-            <a href="#newsletter" className="text-foreground hover:text-primary transition-colors">
+            <a
+              href="#newsletter"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('newsletter');
+              }}
+              className="text-foreground hover:text-primary transition-colors"
+            >
               Newsletter
             </a>
-            <a href="#about" className="text-foreground hover:text-primary transition-colors">
+            <a
+              href="#about"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('about');
+              }}
+              className="text-foreground hover:text-primary transition-colors"
+            >
               About
             </a>
-            <Button 
+            <Button
               className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700"
-              onClick={scrollToSubscribe}
+              onClick={() => scrollToSection('subscribe')}
             >
               Subscribe
             </Button>
@@ -57,18 +77,39 @@ const Header = () => {
         {isMenuOpen && (
           <nav className="md:hidden mt-4 pb-4 border-t border-border pt-4">
             <div className="flex flex-col space-y-4">
-              <a href="#home" className="text-foreground hover:text-primary transition-colors">
+              <a
+                href="#home"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection('home');
+                }}
+                className="text-foreground hover:text-primary transition-colors"
+              >
                 Home
               </a>
-              <a href="#newsletter" className="text-foreground hover:text-primary transition-colors">
+              <a
+                href="#newsletter"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection('newsletter');
+                }}
+                className="text-foreground hover:text-primary transition-colors"
+              >
                 Newsletter
               </a>
-              <a href="#about" className="text-foreground hover:text-primary transition-colors">
+              <a
+                href="#about"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection('about');
+                }}
+                className="text-foreground hover:text-primary transition-colors"
+              >
                 About
               </a>
-              <Button 
+              <Button
                 className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 w-full"
-                onClick={scrollToSubscribe}
+                onClick={() => scrollToSection('subscribe')}
               >
                 Subscribe
               </Button>
