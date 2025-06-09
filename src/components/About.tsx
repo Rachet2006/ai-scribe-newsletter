@@ -1,13 +1,12 @@
 
-import { User, Award, BookOpen, Users } from 'lucide-react';
+import { User, BookOpen, Users } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 
 const About = () => {
   const stats = [
-    { icon: Users, label: "Newsletter Subscribers", value: "50,000+" },
-    { icon: BookOpen, label: "Articles Published", value: "200+" },
-    { icon: Award, label: "Industry Recognition", value: "15+" },
-    { icon: User, label: "Years in AI", value: "8+" }
+    { icon: Users, label: "Newsletter Subscribers", value: "50+" },
+    { icon: BookOpen, label: "Articles Published", value: "10+" },
+    { icon: User, label: "Years in AI", value: "5+" }
   ];
 
   return (

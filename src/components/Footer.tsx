@@ -12,7 +12,7 @@ const Footer = () => {
   const footerLinks = {
     Newsletter: ["Latest Issue", "Archive", "Subscribe"],
     Company: ["About"],
-    Resources: ["Tools"]
+    Resources: ["AI Tools"]
   };
 
   return (
@@ -21,8 +21,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-8">
           {/* Brand Section */}
           <div className="lg:col-span-2">
-            <div className="flex items-center space-x-2 mb-4">
-              <img src="/logo.svg" alt="NextTech Brief logo" className="w-8 h-8" />
+            <div className="flex items-center mb-4">
               <span className="text-xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
                 The NextTech Brief
               </span>

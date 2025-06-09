@@ -13,13 +13,19 @@ const Header = () => {
     }
   };
 
+  const scrollToAbout = () => {
+    const aboutSection = document.getElementById('about');
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <img src="/logo.svg" alt="NextTech Brief logo" className="w-8 h-8" />
+          <div className="flex items-center">
             <span className="text-xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
               The NextTech Brief
             </span>
@@ -33,7 +39,11 @@ const Header = () => {
             <a href="#newsletter" className="text-foreground hover:text-primary transition-colors">
               Newsletter
             </a>
-            <a href="#about" className="text-foreground hover:text-primary transition-colors">
+            <a
+              href="#about"
+              onClick={scrollToAbout}
+              className="text-foreground hover:text-primary transition-colors"
+            >
               About
             </a>
             <Button 
@@ -63,7 +73,11 @@ const Header = () => {
               <a href="#newsletter" className="text-foreground hover:text-primary transition-colors">
                 Newsletter
               </a>
-              <a href="#about" className="text-foreground hover:text-primary transition-colors">
+              <a
+                href="#about"
+                onClick={scrollToAbout}
+                className="text-foreground hover:text-primary transition-colors"
+              >
                 About
               </a>
               <Button 
