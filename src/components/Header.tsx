@@ -21,7 +21,7 @@ const Header = () => {
           <div className="flex items-center space-x-2">
             <img src="/logo.svg" alt="NextTech Brief logo" className="w-8 h-8" />
             <span className="text-xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
-              NextTech Brief
+              The NextTech Brief
             </span>
           </div>
 

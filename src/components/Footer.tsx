@@ -10,10 +10,9 @@ const Footer = () => {
   ];
 
   const footerLinks = {
-    Newsletter: ["Latest Issues", "Archive", "Subscribe", "RSS Feed"],
-    Company: ["About", "Team", "Careers", "Contact"],
-    Resources: ["AI Tools", "Research", "Tutorials", "Community"],
-    Legal: ["Privacy Policy", "Terms of Service", "Cookie Policy", "GDPR"]
+    Newsletter: ["Latest Issue", "Archive", "Subscribe"],
+    Company: ["About"],
+    Resources: ["Tools"]
   };
 
   return (
@@ -25,7 +24,7 @@ const Footer = () => {
             <div className="flex items-center space-x-2 mb-4">
               <img src="/logo.svg" alt="NextTech Brief logo" className="w-8 h-8" />
               <span className="text-xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
-                NextTech Brief
+                The NextTech Brief
               </span>
             </div>
             <p className="text-muted-foreground mb-6 max-w-sm">
