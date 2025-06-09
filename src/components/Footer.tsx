@@ -1,12 +1,12 @@
-import { Zap, Twitter, Linkedin, Github, Mail, Instagram } from 'lucide-react';
+
+import { Zap, Linkedin, Github, Mail, Instagram } from 'lucide-react';
 
 const Footer = () => {
   const socialLinks = [
-    { icon: Twitter, href: "#", label: "Twitter" },
     { icon: Linkedin, href: "https://www.linkedin.com/in/rishitjain006", label: "LinkedIn" },
     { icon: Github, href: "https://github.com/Rachet2006", label: "GitHub" },
     { icon: Instagram, href: "https://www.instagram.com/nexttech_brief/?hl=en", label: "Instagram" },
-    { icon: Mail, href: "#", label: "Email" }
+    { icon: Mail, href: "mailto:rishit@nexttechbrief.com", label: "Email" }
   ];
 
   const footerLinks = {
