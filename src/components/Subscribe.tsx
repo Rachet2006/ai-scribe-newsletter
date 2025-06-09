@@ -73,7 +73,7 @@ const Subscribe = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-50/50 via-purple-50/30 to-pink-50/50 dark:from-blue-950/20 dark:via-purple-950/20 dark:to-pink-950/20">
+    <section id="subscribe" className="py-20 bg-gradient-to-br from-blue-50/50 via-purple-50/30 to-pink-50/50 dark:from-blue-950/20 dark:via-purple-950/20 dark:to-pink-950/20">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <Card className="border-2 border-gradient-to-r from-blue-500/20 to-purple-600/20 bg-card/90 backdrop-blur-sm">

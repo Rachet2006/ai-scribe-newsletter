@@ -3,6 +3,20 @@ import { ArrowRight, Brain, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Hero = () => {
+  const scrollToSubscribe = () => {
+    const subscribeSection = document.getElementById('subscribe');
+    if (subscribeSection) {
+      subscribeSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const scrollToNewsletter = () => {
+    const newsletterSection = document.getElementById('newsletter');
+    if (newsletterSection) {
+      newsletterSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-background via-background to-muted/20">
       {/* Animated Background Elements */}
@@ -38,6 +52,7 @@ const Hero = () => {
             <Button 
               size="lg" 
               className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-4 text-lg group"
+              onClick={scrollToSubscribe}
             >
               Subscribe Now
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -46,6 +61,7 @@ const Hero = () => {
               variant="outline" 
               size="lg" 
               className="border-border hover:bg-muted px-8 py-4 text-lg"
+              onClick={scrollToNewsletter}
             >
               Read Latest Issue
             </Button>

@@ -6,6 +6,13 @@ import { Button } from '@/components/ui/button';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const scrollToSubscribe = () => {
+    const subscribeSection = document.getElementById('subscribe');
+    if (subscribeSection) {
+      subscribeSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-4 py-4">
@@ -31,7 +38,10 @@ const Header = () => {
             <a href="#about" className="text-foreground hover:text-primary transition-colors">
               About
             </a>
-            <Button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700">
+            <Button 
+              className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700"
+              onClick={scrollToSubscribe}
+            >
               Subscribe
             </Button>
           </nav>
@@ -58,7 +68,10 @@ const Header = () => {
               <a href="#about" className="text-foreground hover:text-primary transition-colors">
                 About
               </a>
-              <Button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 w-full">
+              <Button 
+                className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 w-full"
+                onClick={scrollToSubscribe}
+              >
                 Subscribe
               </Button>
             </div>
