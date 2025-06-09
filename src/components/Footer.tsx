@@ -10,10 +10,9 @@ const Footer = () => {
   ];
 
   const footerLinks = {
-    Newsletter: ["Latest Issues", "Archive", "Subscribe", "RSS Feed"],
-    Company: ["About", "Team", "Careers", "Contact"],
-    Resources: ["AI Tools", "Research", "Tutorials", "Community"],
-    Legal: ["Privacy Policy", "Terms of Service", "Cookie Policy", "GDPR"]
+    Newsletter: ["Latest Issue", "Archive", "Subscribe"],
+    Company: ["About"],
+    Resources: ["Tools"]
   };
 
   return (
@@ -23,11 +22,9 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                <Zap className="w-5 h-5 text-white" />
-              </div>
+              <img src="/logo.svg" alt="NextTech Brief logo" className="w-8 h-8" />
               <span className="text-xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
-                AI Insights
+                The NextTech Brief
               </span>
             </div>
             <p className="text-muted-foreground mb-6 max-w-sm">
@@ -74,7 +71,7 @@ const Footer = () => {
         <div className="border-t border-border pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-muted-foreground text-sm">
-              © 2024 AI Insights. All rights reserved.
+              © 2024 NextTech Brief. All rights reserved.
             </div>
             <div className="flex items-center space-x-6 text-sm">
               <a href="#" className="text-muted-foreground hover:text-primary transition-colors">

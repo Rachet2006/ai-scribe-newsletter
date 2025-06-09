@@ -42,7 +42,7 @@ const Newsletter = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Latest from{' '}
             <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
-              AI Insights
+              The NextTech Brief
             </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">

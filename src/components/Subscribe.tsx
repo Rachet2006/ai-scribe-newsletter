@@ -45,7 +45,7 @@ const Subscribe = () => {
       setIsSubscribed(true);
       toast({
         title: "Successfully subscribed!",
-        description: "Welcome to AI Insights! Check your email for confirmation.",
+        description: "Welcome to NextTech Brief! Check your email for confirmation.",
       });
 
       setTimeout(() => {
@@ -132,7 +132,7 @@ const Subscribe = () => {
                     <span className="text-lg font-semibold">Successfully Subscribed!</span>
                   </div>
                   <p className="text-muted-foreground">
-                    Welcome to AI Insights! Check your email for a confirmation link.
+                    Welcome to NextTech Brief! Check your email for a confirmation link.
                   </p>
                 </div>
               )}
