@@ -20,7 +20,7 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <img src="/logo.svg" alt="NextTech Brief logo" className="w-8 h-8" />
+            <img src="/lovable-uploads/921c0be1-4a56-429b-93ab-bd70d0c51df0.png" alt="NextTech Brief logo" className="w-8 h-8" />
             <span className="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
               The NextTech Brief
             </span>

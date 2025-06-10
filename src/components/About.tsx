@@ -60,10 +60,12 @@ const About = () => {
             </div>
 
             <div className="relative">
-              <div className="w-full h-80 bg-gradient-to-br from-[#F59E0B]/10 to-[#14B8A6]/10 rounded-2xl border border-border flex items-center justify-center shadow-sm">
-                <div className="w-32 h-32 bg-gradient-to-br from-[#F59E0B] to-[#14B8A6] rounded-full flex items-center justify-center shadow-lg">
-                  <User className="w-16 h-16 text-white" />
-                </div>
+              <div className="w-full h-80 bg-gradient-to-br from-[#F59E0B]/10 to-[#14B8A6]/10 rounded-2xl border border-border flex items-center justify-center shadow-sm overflow-hidden">
+                <img 
+                  src="/lovable-uploads/d2e0d737-5389-4993-9564-fc34ed0f3ba5.png" 
+                  alt="Rishit - Founder of NextTech Brief" 
+                  className="w-full h-full object-cover rounded-2xl"
+                />
               </div>
               {/* Floating elements */}
               <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-pink-500/20 to-red-500/20 rounded-lg animate-pulse shadow-sm"></div>
