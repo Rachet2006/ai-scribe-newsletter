@@ -3,6 +3,7 @@ import { createClient } from '@supabase/supabase-js';
 const headers = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'Content-Type',
+  'Access-Control-Allow-Methods': 'POST,OPTIONS',
 };
 
 export async function handler(event) {
@@ -15,6 +16,18 @@ export async function handler(event) {
   }
 
   try {
+    const missingEnv = ['SUPABASE_URL', 'SUPABASE_SERVICE_ROLE_KEY'].filter(
+      (k) => !process.env[k]
+    );
+    if (missingEnv.length > 0) {
+      console.error('Missing env vars:', missingEnv.join(','));
+      return {
+        statusCode: 500,
+        headers,
+        body: JSON.stringify({ error: 'Server misconfiguration' }),
+      };
+    }
+
     const { token } = JSON.parse(event.body ?? '{}');
     if (!token) {
       return { statusCode: 400, headers, body: JSON.stringify({ error: 'Token required' }) };

@@ -5,6 +5,7 @@ import crypto from 'node:crypto';
 const headers = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'Content-Type',
+  'Access-Control-Allow-Methods': 'POST,OPTIONS',
 };
 
 export async function handler(event) {
@@ -17,6 +18,17 @@ export async function handler(event) {
   }
 
   try {
+    const missingEnv = [
+      'SUPABASE_URL',
+      'SUPABASE_SERVICE_ROLE_KEY',
+      'RESEND_API_KEY',
+      'DOMAIN_URL',
+    ].filter((k) => !process.env[k]);
+    if (missingEnv.length > 0) {
+      console.error('Missing env vars:', missingEnv.join(','));
+      return { statusCode: 500, headers, body: JSON.stringify({ error: 'Server misconfiguration' }) };
+    }
+
     const { name, email } = JSON.parse(event.body ?? '{}');
     if (!name || !email) {
       return { statusCode: 400, headers, body: JSON.stringify({ error: 'Missing name or email' }) };
@@ -36,12 +48,17 @@ export async function handler(event) {
 
     const resend = new Resend(process.env.RESEND_API_KEY);
     const confirmUrl = `${process.env.DOMAIN_URL}/confirm?token=${confirmation_token}`;
-    await resend.emails.send({
-      from: 'NextTech Brief <noreply@nexttechbrief.com>',
-      to: email,
-      subject: 'Confirm your subscription',
-      html: `<p>Hello ${name},</p><p>Confirm your subscription by clicking <a href="${confirmUrl}">here</a>.</p>`,
-    });
+    try {
+      await resend.emails.send({
+        from: 'NextTech Brief <noreply@nexttechbrief.com>',
+        to: email,
+        subject: 'Confirm your subscription',
+        html: `<p>Hello ${name},</p><p>Confirm your subscription by clicking <a href="${confirmUrl}">here</a>.</p>`,
+      });
+    } catch (emailErr) {
+      console.error('Email send error:', emailErr);
+      return { statusCode: 500, headers, body: JSON.stringify({ error: 'Failed to send confirmation email' }) };
+    }
 
     return { statusCode: 200, headers, body: JSON.stringify({ success: true }) };
   } catch (err) {
