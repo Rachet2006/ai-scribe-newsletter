@@ -11,34 +11,28 @@ export type Database = {
     Tables: {
       subscribers: {
         Row: {
-          city: string | null
-          country: string | null
-          created_at: string | null
-          email: string
-          first_name: string | null
           id: string
-          state: string | null
-          status: boolean | null
+          name: string | null
+          email: string
+          confirmed: boolean | null
+          confirmation_token: string | null
+          created_at: string | null
         }
         Insert: {
-          city?: string | null
-          country?: string | null
-          created_at?: string | null
-          email: string
-          first_name?: string | null
           id?: string
-          state?: string | null
-          status?: boolean | null
+          name?: string | null
+          email: string
+          confirmed?: boolean | null
+          confirmation_token?: string | null
+          created_at?: string | null
         }
         Update: {
-          city?: string | null
-          country?: string | null
-          created_at?: string | null
-          email?: string
-          first_name?: string | null
           id?: string
-          state?: string | null
-          status?: boolean | null
+          name?: string | null
+          email?: string
+          confirmed?: boolean | null
+          confirmation_token?: string | null
+          created_at?: string | null
         }
         Relationships: []
       }

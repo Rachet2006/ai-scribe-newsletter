@@ -1,6 +1,6 @@
 
-import { useState } from 'react';
-import { Mail, CheckCircle, Sparkles } from 'lucide-react';
+import { useState } from 'react'
+import { Mail, CheckCircle, Sparkles, User } from 'lucide-react'
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
@@ -8,7 +8,8 @@ import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 
 const Subscribe = () => {
-  const [email, setEmail] = useState('');
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
@@ -18,10 +19,11 @@ const Subscribe = () => {
     setIsLoading(true);
 
     try {
+      const token = crypto.randomUUID()
       const { data, error } = await supabase
         .from('subscribers')
-        .insert([{ email }])
-        .select();
+        .insert([{ name, email, confirmation_token: token }])
+        .select()
 
       if (error) {
         if (error.code === '23505') {
@@ -41,16 +43,34 @@ const Subscribe = () => {
         return;
       }
 
-      console.log('Successfully subscribed:', data);
-      setIsSubscribed(true);
+      console.log('Successfully subscribed:', data)
+      setIsSubscribed(true)
+
+      const resendApiKey = import.meta.env.VITE_RESEND_API_KEY as string
+      const domain = import.meta.env.VITE_DOMAIN_NAME as string
+      await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${resendApiKey}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          from: `The NextTech Brief <noreply@${domain}>`,
+          to: email,
+          subject: 'Please confirm your subscription to The NextTech Brief',
+          html: `<p>Hi ${name || 'there'}, please confirm your subscription.</p><p><a href="https://${domain}/confirm?token=${token}">Confirm Subscription</a></p>`
+        })
+      })
+
       toast({
-        title: "Successfully subscribed!",
-        description: "Welcome to NextTech Brief! Check your email for confirmation.",
-      });
+        title: 'Successfully subscribed!',
+        description: 'Welcome to NextTech Brief! Check your email for confirmation.'
+      })
 
       setTimeout(() => {
         setIsSubscribed(false);
-        setEmail('');
+        setName('')
+        setEmail('')
       }, 3000);
     } catch (error) {
       console.error('Subscription error:', error);
@@ -98,6 +118,17 @@ const Subscribe = () => {
               {!isSubscribed ? (
                 <form onSubmit={handleSubmit} className="space-y-6 mb-8">
                   <div className="flex flex-col md:flex-row gap-4 max-w-md mx-auto">
+                    <div className="flex-1 relative">
+                      <User className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground w-5 h-5" />
+                      <Input
+                        type="text"
+                        placeholder="Your name"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        className="pl-10 py-6 text-base border-border bg-[#1E1E1E] text-white placeholder:text-muted-foreground focus:border-[#14B8A6] transition-colors"
+                        disabled={isLoading}
+                      />
+                    </div>
                     <div className="flex-1 relative">
                       <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5" />
                       <Input
