@@ -20,7 +20,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-muted/50 border-t border-border text-[#121212]">
+    <footer className="bg-muted border-t border-border">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-8">
           {/* Brand Section */}
@@ -31,7 +31,7 @@ const Footer = () => {
                 The NextTech Brief
               </span>
             </div>
-            <p className="text-muted-foreground mb-6 max-w-sm">
+            <p className="text-muted-foreground mb-6 max-w-sm leading-relaxed">
               Your weekly source for AI breakthroughs, practical applications, and industry insights. 
               Stay ahead of the curve with expert analysis and curated content.
             </p>
@@ -42,7 +42,7 @@ const Footer = () => {
                   href={link.href}
                   target={link.href !== "#" ? "_blank" : "_self"}
                   rel={link.href !== "#" ? "noopener noreferrer" : undefined}
-                  className="w-10 h-10 bg-background border border-border rounded-lg flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                  className="w-10 h-10 bg-background border border-border rounded-lg flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-200 shadow-sm"
                   aria-label={link.label}
                 >
                   <link.icon className="w-5 h-5" />
@@ -54,7 +54,7 @@ const Footer = () => {
           {/* Footer Links */}
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
-              <h3 className="font-semibold mb-4">{category}</h3>
+              <h3 className="font-semibold mb-4 text-foreground">{category}</h3>
               <ul className="space-y-2">
                 {links.map((link, index) => (
                   <li key={index}>

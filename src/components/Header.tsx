@@ -14,7 +14,7 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border shadow-sm">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -27,17 +27,17 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#home" className="text-foreground hover:text-primary transition-colors">
+            <a href="#home" className="text-foreground hover:text-primary transition-colors font-medium">
               Home
             </a>
-            <a href="#newsletter" className="text-foreground hover:text-primary transition-colors">
+            <a href="#newsletter" className="text-foreground hover:text-primary transition-colors font-medium">
               Newsletter
             </a>
-            <a href="#about" className="text-foreground hover:text-primary transition-colors">
+            <a href="#about" className="text-foreground hover:text-primary transition-colors font-medium">
               About
             </a>
             <Button
-              className="bg-gradient-to-r from-[#F59E0B] to-[#14B8A6] hover:opacity-90"
+              className="bg-gradient-to-r from-[#F59E0B] to-[#14B8A6] hover:opacity-90 shadow-lg"
               onClick={scrollToSubscribe}
             >
               Subscribe
@@ -46,7 +46,7 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2"
+            className="md:hidden p-2 hover:bg-muted rounded-lg transition-colors"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X /> : <Menu />}
@@ -55,19 +55,19 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <nav className="md:hidden mt-4 pb-4 border-t border-border pt-4">
+          <nav className="md:hidden mt-4 pb-4 border-t border-border pt-4 bg-background/95">
             <div className="flex flex-col space-y-4">
-              <a href="#home" className="text-foreground hover:text-primary transition-colors">
+              <a href="#home" className="text-foreground hover:text-primary transition-colors font-medium">
                 Home
               </a>
-              <a href="#newsletter" className="text-foreground hover:text-primary transition-colors">
+              <a href="#newsletter" className="text-foreground hover:text-primary transition-colors font-medium">
                 Newsletter
               </a>
-              <a href="#about" className="text-foreground hover:text-primary transition-colors">
+              <a href="#about" className="text-foreground hover:text-primary transition-colors font-medium">
                 About
               </a>
               <Button
-                className="bg-gradient-to-r from-[#F59E0B] to-[#14B8A6] hover:opacity-90 w-full"
+                className="bg-gradient-to-r from-[#F59E0B] to-[#14B8A6] hover:opacity-90 w-full shadow-lg"
                 onClick={scrollToSubscribe}
               >
                 Subscribe

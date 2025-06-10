@@ -36,33 +36,33 @@ const Newsletter = () => {
   ];
 
   return (
-    <section id="newsletter" className="py-20 bg-muted/30 text-[#121212]">
+    <section id="newsletter" className="py-20 bg-gradient-to-br from-background to-muted/50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
             Latest from{' '}
             <span className="bg-gradient-to-r from-[#F59E0B] to-[#14B8A6] bg-clip-text text-transparent">
               The NextTech Brief
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Deep dives into AI research, practical applications, and industry trends that matter to professionals and enthusiasts.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {featuredArticles.map((article, index) => (
-            <Card key={index} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-border bg-card">
+            <Card key={index} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-border bg-card shadow-sm">
               <CardHeader className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <Badge variant="secondary" className="text-xs">
+                  <Badge variant="secondary" className="text-xs font-medium">
                     {article.category}
                   </Badge>
-                  <div className={`w-10 h-10 rounded-lg bg-gradient-to-r ${article.gradient} flex items-center justify-center`}>
+                  <div className={`w-10 h-10 rounded-lg bg-gradient-to-r ${article.gradient} flex items-center justify-center shadow-sm`}>
                     <article.icon className="w-5 h-5 text-white" />
                   </div>
                 </div>
-                <CardTitle className="text-xl group-hover:text-primary transition-colors">
+                <CardTitle className="text-xl group-hover:text-primary transition-colors leading-tight">
                   {article.title}
                 </CardTitle>
               </CardHeader>
@@ -84,7 +84,7 @@ const Newsletter = () => {
                 </div>
                 <Button 
                   variant="ghost" 
-                  className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
+                  className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors border border-transparent group-hover:border-primary"
                 >
                   Read Article
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -98,7 +98,7 @@ const Newsletter = () => {
           <Button 
             size="lg" 
             variant="outline" 
-            className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+            className="border-primary text-primary hover:bg-primary hover:text-primary-foreground shadow-sm"
           >
             View All Articles
             <ArrowRight className="ml-2 w-5 h-5" />

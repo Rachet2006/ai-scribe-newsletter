@@ -11,22 +11,34 @@ export type Database = {
     Tables: {
       subscribers: {
         Row: {
-          confirmed: boolean | null
+          city: string | null
+          country: string | null
           created_at: string | null
           email: string
+          first_name: string | null
           id: string
+          state: string | null
+          status: boolean | null
         }
         Insert: {
-          confirmed?: boolean | null
+          city?: string | null
+          country?: string | null
           created_at?: string | null
           email: string
+          first_name?: string | null
           id?: string
+          state?: string | null
+          status?: boolean | null
         }
         Update: {
-          confirmed?: boolean | null
+          city?: string | null
+          country?: string | null
           created_at?: string | null
           email?: string
+          first_name?: string | null
           id?: string
+          state?: string | null
+          status?: boolean | null
         }
         Relationships: []
       }
