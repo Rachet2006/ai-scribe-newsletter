@@ -19,6 +19,15 @@ const Subscribe = () => {
     setIsLoading(true);
 
     try {
+      if (!supabase) {
+        toast({
+          title: 'Configuration error',
+          description: 'Supabase credentials are missing.',
+          variant: 'destructive',
+        })
+        setIsLoading(false)
+        return
+      }
       const token = crypto.randomUUID()
       const { data, error } = await supabase
         .from('subscribers')
