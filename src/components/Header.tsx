@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { Menu, X, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,26 +19,29 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-2">
             <img src="/logo.svg" alt="NextTech Brief logo" className="w-8 h-8" />
-            <span className="text-xl font-bold bg-gradient-to-r from-[#F59E0B] to-[#14B8A6] bg-clip-text text-transparent">
+            <span className="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
               The NextTech Brief
             </span>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#home" className="text-foreground hover:text-primary transition-colors font-medium">
+            <Link to="/" className="text-foreground hover:text-primary transition-colors font-medium">
               Home
-            </a>
+            </Link>
             <a href="#newsletter" className="text-foreground hover:text-primary transition-colors font-medium">
               Newsletter
             </a>
+            <Link to="/archive" className="text-foreground hover:text-primary transition-colors font-medium">
+              Archive
+            </Link>
             <a href="#about" className="text-foreground hover:text-primary transition-colors font-medium">
               About
             </a>
             <Button
-              className="bg-gradient-to-r from-[#F59E0B] to-[#14B8A6] hover:opacity-90 shadow-lg"
+              className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 shadow-lg"
               onClick={scrollToSubscribe}
             >
               Subscribe
@@ -57,17 +61,20 @@ const Header = () => {
         {isMenuOpen && (
           <nav className="md:hidden mt-4 pb-4 border-t border-border pt-4 bg-background/95">
             <div className="flex flex-col space-y-4">
-              <a href="#home" className="text-foreground hover:text-primary transition-colors font-medium">
+              <Link to="/" className="text-foreground hover:text-primary transition-colors font-medium">
                 Home
-              </a>
+              </Link>
               <a href="#newsletter" className="text-foreground hover:text-primary transition-colors font-medium">
                 Newsletter
               </a>
+              <Link to="/archive" className="text-foreground hover:text-primary transition-colors font-medium">
+                Archive
+              </Link>
               <a href="#about" className="text-foreground hover:text-primary transition-colors font-medium">
                 About
               </a>
               <Button
-                className="bg-gradient-to-r from-[#F59E0B] to-[#14B8A6] hover:opacity-90 w-full shadow-lg"
+                className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 w-full shadow-lg"
                 onClick={scrollToSubscribe}
               >
                 Subscribe

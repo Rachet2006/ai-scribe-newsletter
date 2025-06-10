@@ -3,6 +3,7 @@ import { Calendar, Clock, ArrowRight, TrendingUp, Cpu, Lightbulb } from 'lucide-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { Link } from 'react-router-dom';
 
 const Newsletter = () => {
   const featuredArticles = [
@@ -95,14 +96,16 @@ const Newsletter = () => {
         </div>
 
         <div className="text-center">
-          <Button 
-            size="lg" 
-            variant="outline" 
-            className="border-primary text-primary hover:bg-primary hover:text-primary-foreground shadow-sm"
-          >
-            View All Articles
-            <ArrowRight className="ml-2 w-5 h-5" />
-          </Button>
+          <Link to="/archive">
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground shadow-sm"
+            >
+              View All Articles
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
