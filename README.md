@@ -38,14 +38,13 @@ npm run dev
 
 ### Environment variables
 
-Create a `.env` file based on `.env.example` and add your Supabase and Resend credentials:
+Set these variables in your Netlify project settings or in a local `.env` file based on `.env.example`:
 
 ```ini
-VITE_SUPABASE_URL=your-supabase-url
-VITE_SUPABASE_ANON_KEY=your-supabase-anon-key
+SUPABASE_URL=your-supabase-url
 SUPABASE_SERVICE_ROLE_KEY=your-supabase-service-role-key
 RESEND_API_KEY=your-resend-api-key
-VITE_DOMAIN_NAME=nexttechbrief.com
+DOMAIN_NAME=nexttechbrief.com
 ```
 
 Without these variables the app will not connect to Supabase or send confirmation emails.

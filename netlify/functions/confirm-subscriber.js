@@ -16,13 +16,17 @@ export async function handler(event) {
     return { statusCode: 400, body: JSON.stringify({ error: 'Token required' }) }
   }
 
-  const { error } = await supabase
+  const { data, error } = await supabase
     .from('subscribers')
     .update({ confirmed: true })
     .eq('confirmation_token', token)
+    .select('id')
 
   if (error) {
     return { statusCode: 400, body: JSON.stringify({ error: error.message }) }
+  }
+  if (!data || data.length === 0) {
+    return { statusCode: 400, body: JSON.stringify({ error: 'Invalid token' }) }
   }
 
   return {
