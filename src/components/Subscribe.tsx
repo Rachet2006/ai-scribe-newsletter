@@ -4,10 +4,10 @@ import { Mail, CheckCircle, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
-import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 
 const Subscribe = () => {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -18,46 +18,36 @@ const Subscribe = () => {
     setIsLoading(true);
 
     try {
-      const { data, error } = await supabase
-        .from('subscribers')
-        .insert([{ email }])
-        .select();
+      const response = await fetch('/.netlify/functions/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email }),
+      });
+      const result = await response.json();
 
-      if (error) {
-        if (error.code === '23505') {
-          // Unique constraint violation - email already exists
-          toast({
-            title: "Already subscribed",
-            description: "This email is already subscribed to our newsletter.",
-            variant: "destructive",
-          });
-        } else {
-          toast({
-            title: "Error",
-            description: "Something went wrong. Please try again.",
-            variant: "destructive",
-          });
-        }
+      if (!response.ok) {
+        toast({
+          title: 'Error',
+          description: result.error || 'Something went wrong. Please try again.',
+          variant: 'destructive',
+        });
         return;
       }
 
-      console.log('Successfully subscribed:', data);
       setIsSubscribed(true);
       toast({
-        title: "Successfully subscribed!",
-        description: "Welcome to NextTech Brief! Check your email for confirmation.",
+        title: 'Successfully subscribed!',
+        description: 'Check your inbox to confirm your subscription.',
       });
-
-      setTimeout(() => {
-        setIsSubscribed(false);
-        setEmail('');
-      }, 3000);
+      setName('');
+      setEmail('');
+      setTimeout(() => setIsSubscribed(false), 3000);
     } catch (error) {
       console.error('Subscription error:', error);
       toast({
-        title: "Error",
-        description: "Something went wrong. Please try again.",
-        variant: "destructive",
+        title: 'Error',
+        description: 'Something went wrong. Please try again.',
+        variant: 'destructive',
       });
     } finally {
       setIsLoading(false);
@@ -98,6 +88,17 @@ const Subscribe = () => {
               {!isSubscribed ? (
                 <form onSubmit={handleSubmit} className="space-y-6 mb-8">
                   <div className="flex flex-col md:flex-row gap-4 max-w-md mx-auto">
+                    <div className="flex-1">
+                      <Input
+                        type="text"
+                        placeholder="Your name"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        className="py-6 text-base border-border bg-[#1E1E1E] text-white placeholder:text-muted-foreground focus:border-[#14B8A6] transition-colors"
+                        required
+                        disabled={isLoading}
+                      />
+                    </div>
                     <div className="flex-1 relative">
                       <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5" />
                       <Input
